@@ -1,0 +1,22 @@
+<h1>List of students</h1>
+
+<table border = 1>
+	<tr>
+		<th width= 250>Name</th>
+		<th width= 180>Marks</th>
+		<%if admin_signed_in?%>
+			<th width= 100></th>
+			<th width= 100></th>
+		<%end%>
+	</tr>
+	<% @students.each do |s|%>
+		<tr>
+		<td><%=s.name%></td><td align ="center"> <%=s.marks%></td>
+		<%if admin_signed_in?%>
+		<td><%= link_to "Edit", edit_student_path(s)%></td>
+		<td><%= link_to "Delete", s, method: :delete, data: {confirm: "Confirm delete Student record"}%></td>
+	</tr>
+		<%end%>
+
+		<%end%>
+</table>

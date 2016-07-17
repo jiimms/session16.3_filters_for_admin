@@ -1,0 +1,11 @@
+
+<div class = "nav">
+	<% if !admin_signed_in? %>
+		<%= link_to "Login", new_admin_session_path %>
+	<%else%>
+		<%= link_to "Log out",destroy_admin_session_path, method: :delete %>
+		<%= link_to "List of Students", students_path%>
+		<%= link_to "Add student record", new_student_path%>
+	<%end%>
+</div>
+

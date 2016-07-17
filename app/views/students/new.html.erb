@@ -1,0 +1,18 @@
+<h1>Add Student Record</h1>
+<%if @student.errors.any?%>
+<ul>
+	<%@student.errors.full_messages.each do |msg|%>
+		<li><%=msg%></li>
+	<%end%>
+</ul>
+<%end%>
+
+<%= form_for @student do |s|%>
+	<%= s.label :name%>
+	<%= s.text_field :name%> <br>
+
+	<%= s.label :marks%>
+	<%= s.text_field :marks%><br>
+	
+	<%=s.submit "save"%>
+<%end%>
